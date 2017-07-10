@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerControler : MonoBehaviour {
     private Rigidbody2D rigidbody;
     private bool moving;
+    public int velocity;
 	// Use this for initialization
 	void Start () {
         rigidbody = GetComponent<Rigidbody2D>();
@@ -28,6 +29,26 @@ public class PlayerControler : MonoBehaviour {
         {
             moving = false;
         }
-        rigidbody.MovePosition(rigidbody.position + moviment * Time.deltaTime);
+        rigidbody.MovePosition(rigidbody.position + moviment * Time.deltaTime*velocity);
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Peixaria")
+        {
+
+        }
+        else if(collision.gameObject.tag == "Dungeon")
+        {
+
+        }
+        else if (collision.gameObject.tag == "Comida")
+        {
+
+        }
+        else if (collision.gameObject.tag == "Tiro ao alvo")
+        {
+
+        }
     }
 }
