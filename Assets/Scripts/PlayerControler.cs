@@ -6,14 +6,28 @@ public class PlayerControler : MonoBehaviour {
     private Rigidbody2D rigidbody;
     private bool moving;
     public int velocity;
-	// Use this for initialization
-	void Start () {
+    private Vector2 direction;
+    public GameObject tiro;
+    private List<GameObject> tiros = new List<GameObject>();
+    private Transform BoardTiros;
+    // Use this for initialization
+    void Start () {
         rigidbody = GetComponent<Rigidbody2D>();
+        tiros.Clear();
+        direction = new Vector2(1, 0);
 	}
 	
 	// Update is called once per frame
 	void Update () {
         Moviment();
+        if(Input.GetButtonDown("Jump"))
+        {
+            WeaponScript weapon = GetComponent<WeaponScript>();
+            if(weapon!=null)
+            {
+                weapon.Attack(direction);
+            }
+        }
     }
  
     private void Moviment()
@@ -24,6 +38,36 @@ public class PlayerControler : MonoBehaviour {
         if(moviment!=Vector2.zero)
         {
             moving = true;
+            if (x != 0)
+            {
+                if (x > 0)
+                {
+                    direction.x = 1;//pega a direção do ultimo movimento
+                }
+                else
+                {
+                    direction.x = -1;
+                }
+            }
+            else
+            {
+                direction.x = 0;
+            }
+            if(y!= 0)
+            {
+                if (y > 0)
+                {
+                    direction.y = 1;
+                }
+                else
+                {
+                    direction.y = -1;
+                }
+            }
+            else
+            {
+                direction.y = 0;
+            }
         }
         else
         {
@@ -36,7 +80,7 @@ public class PlayerControler : MonoBehaviour {
     {
         if(collision.gameObject.tag == "Peixaria")
         {
-
+            //chama cena de peixaria
         }
         else if(collision.gameObject.tag == "Dungeon")
         {
