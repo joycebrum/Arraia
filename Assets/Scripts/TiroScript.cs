@@ -8,8 +8,11 @@ public class TiroScript : MonoBehaviour {
     public Rigidbody2D rigidbody;
     public int damage;
     public string Enemy;
-    public void setDirection (Vector2 direc)
+    public string atirador;
+    public void setDirection (Vector2 direc, string origem, string inimigo)
     {
+        atirador = origem;
+        Enemy = inimigo
         direction = direc;
     }
 	// Use this for initialization
@@ -25,8 +28,9 @@ public class TiroScript : MonoBehaviour {
         {
             HealthScript health = collision.gameObject.GetComponent<HealthScript>();
             health.Damage(damage);
+            Destroy(gameObject);
         }
-        else if(collision.gameObject.tag != "Player")
+        else if(collision.gameObject.tag != atirador)
         {
             Destroy(gameObject);
         }
