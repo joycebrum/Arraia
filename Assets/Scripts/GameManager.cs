@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
-    public BoardManager boardScript;
+    //public BoardManager boardScript;
 	// Use this for initialization
-	void Awake ()
+	/*void Awake ()
     {
         boardScript = GetComponent<BoardManager>();
         InitGame();
@@ -13,5 +13,5 @@ public class GameManager : MonoBehaviour {
     void InitGame()
     {
         boardScript.SetupCity();
-    }
+    }*/
 }

@@ -4,17 +4,26 @@ using UnityEngine;
 
 public class PlayerControler : MonoBehaviour {
     private Rigidbody2D rigidbody;
+
     private bool moving;
     public int velocity;
+    private int velocityTemp;
     private Vector2 direction;
+
     public GameObject tiro;
     private List<GameObject> tiros = new List<GameObject>();
     private Transform BoardTiros;
+    //private Vector2 bulletSpd;
+
+
+
     // Use this for initialization
     void Start () {
         rigidbody = GetComponent<Rigidbody2D>();
         tiros.Clear();
         direction = new Vector2(1, 0);
+        //bulletSpd.x = velocity * 2;
+        //bulletSpd.x = bulletSpd.y;
 	}
 	
 	// Update is called once per frame
@@ -25,6 +34,7 @@ public class PlayerControler : MonoBehaviour {
             WeaponScript weapon = GetComponent<WeaponScript>();
             if(weapon!=null)
             {
+                
                 weapon.Attack(direction);
             }
         }
@@ -73,14 +83,14 @@ public class PlayerControler : MonoBehaviour {
         {
             moving = false;
         }
-        rigidbody.MovePosition(rigidbody.position + moviment * Time.deltaTime*velocity);
+        rigidbody.MovePosition(rigidbody.position + moviment * Time.deltaTime * velocity);
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Peixaria")
+        if(collision.gameObject.tag == "Pescaria")
         {
-            //chama cena de peixaria
+            //chama cena de pescaria
         }
         else if(collision.gameObject.tag == "Dungeon")
         {

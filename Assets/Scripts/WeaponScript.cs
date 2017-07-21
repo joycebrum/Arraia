@@ -22,6 +22,7 @@ public class WeaponScript : MonoBehaviour {
 	}
     public void Attack(Vector2 direction)
     {
+        direction = direction * 2;
         if(cooldown<=0)
         {
             cooldown = shootrate;
