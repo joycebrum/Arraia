@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: d623d14cb2bc2054a82a26d5c09c812d
+timeCreated: 1500004037
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Luthier
+  fontNames:
+  - Luthier
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: b2789a7b6da5f4f43aea47794b3936a6, type: 3}
+  - {fileID: 12800000, guid: 7ba8c7ee5b45d414580d2c9efd67f6c5, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
